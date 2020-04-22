@@ -9,6 +9,7 @@
         @keyup.right="focusInputByRef('otpDigit' + (index + 1))"
         @keyup.left="focusInputByRef('otpDigit' + (index - 1))"
         @keyup.delete="focusInputByRef('otpDigit' + (index - 1))"
+        :autofocus="isAutoFocus"
         :style="inputStyle"
         :disabled="isDisabled"
         @paste="onPaste"
@@ -23,6 +24,11 @@ export default {
   name: "OTPInput",
 
   props: {
+    isAutoFocus: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isDisabled: {
       type: Boolean,
       required: false,
